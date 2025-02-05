@@ -42,12 +42,12 @@ export default function Scene({ sceneAn }) {
     useEffect(() => {
       const interval = setInterval(() => {
         api.applyForce(
-          [(Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.1], 
+          [(Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.2], 
           [0, 0, 0]
-        ); // 랜덤한 바람 효과
+        ); // 랜덤한 바람 효과 (값 증가)
         api.applyTorque(
-          [(Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.05]
-        ); // 랜덤한 회전 효과
+          [(Math.random() - 0.5) * 0.01, (Math.random() - 0.5) * 0.02, (Math.random() - 0.5) * 0.02]
+        ); // 랜덤한 회전 효과 (값 감소)
       }, 100);
   
       return () => clearInterval(interval);
@@ -75,9 +75,9 @@ export default function Scene({ sceneAn }) {
       <OrbitControls/>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} castShadow />
-      <Physics>
+      <Physics > {/* 중력값 줄이기 */}
         <Img3DWithPhysics />
-        <Floor />
+        {/* <Floor /> */}
       </Physics>
       {/* <animated.mesh rotation={rotation}>
         <Box args={[1, 1, 1]}>

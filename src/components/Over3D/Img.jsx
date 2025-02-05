@@ -7,7 +7,7 @@ export default function Img3D({ position }) {
   return (
     <>
       <Html
-        scale={0.06}
+        scale={0.04}
         portal={{ current: gl.domElement.parentNode }}
         position={[0, 0, 0.001]}
         transform
